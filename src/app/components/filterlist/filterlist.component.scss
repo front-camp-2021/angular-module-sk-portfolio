@@ -1,0 +1,27 @@
+
+.sidebar__form {
+    height: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 3.2rem 4.4rem;
+    margin-bottom: 4rem;
+    box-shadow: 0px 2px 8px 0px rgba(00, 00, 00, 0.1352);
+    @media screen and (max-width: 1200px) {
+        padding: 2rem;
+    }
+}
+ .sidebar__filter {
+    padding-top: 3.6rem;
+    border-top: 1px solid #D6D6D6;
+    margin-bottom: 2.8rem;
+
+    h3 {
+        color: #2C2C2C;
+        margin-bottom: 2rem;
+      }
+    
+    &:first-of-type {
+      padding-top: 0;
+      border-top: none;
+    }
+  }

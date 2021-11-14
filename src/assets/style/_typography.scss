@@ -1,0 +1,27 @@
+html {
+  font-size: 62.5%;
+  font-family: 'Montserrat', sans-serif;
+  color: $black;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-weight: 400;
+}
+
+strong {
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.8rem;
+  line-height: 2.1rem;
+  color: #2C2C2C;
+}
+input {
+  color: #999;
+  font-weight: 300;
+  font-size: 2.2rem;
+  padding: 1.6rem 3.2rem;
+  line-height: 2.6rem;
+  margin: 0;
+}
