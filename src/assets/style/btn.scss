@@ -52,4 +52,10 @@
     display: inline-flex;
     min-width: 29rem;
   }
+  &.btn--border-radius{
+    border-radius: 8px;
+  }
+  .clear-wishlist{
+    margin-bottom: 2rem;
+  }
 }

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CartComponent } from './components/cart/cart/cart.component';
+import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
-import { WishlistComponent } from './components/wishlist/wishlist/wishlist.component';
-import {NotFoundComponent} from './components/not-found/not-found/not-found.component'
+import { WishlistComponent } from './components/wishlist/wishlist.component';
+import {NotFoundComponent} from './components/not-found/not-found.component'
 
 const routes: Routes = [
   {
@@ -21,7 +21,7 @@ const routes: Routes = [
   {
     path: '**',
     component: NotFoundComponent
-  }
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,36 @@
+<main>
+    <section class="products-list">
+      <div class="container">
+        <app-breadcrumps></app-breadcrumps>
+  
+        <div class="products-list__inner">
+          <app-sidebar></app-sidebar>
+          <div class="products products-list__main">
+            <div class="products__search-res">
+              <p>{{ findedProducts }} results found</p>
+              <div class="products__btns">
+                <a [routerLink]="['/cart']" class="btn btn--only-img btn--violet">
+                  <img src="../../../assets/img/icons/bag.svg" alt="heart" />
+                </a>
+                <a
+                  [routerLink]="['/wishlist']"
+                  class="btn btn--only-img btn--violet"
+                >
+                  <img
+                    src="../../../assets/img/icons/white-heart.svg"
+                    alt="heart"
+                  />
+                </a>
+              </div>
+            </div>
+            <app-search></app-search>
+            <app-cardlist
+              [currentPageProducts]="currentPageProducts"
+            ></app-cardlist>
+          </div>
+        </div>
+        <app-pagination [numberOfPages]="numberOfPages"></app-pagination>
+      </div>
+    </section>
+  </main>
+  
