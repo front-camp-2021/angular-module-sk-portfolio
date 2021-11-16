@@ -8,9 +8,7 @@ import { RangeSliderComponent } from './components/range-slider/range-slider.com
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { PaginationLinkComponent } from './components/pagination-link/pagination-link.component';
 import { FilterlistComponent } from './components/filterlist/filterlist.component';
-
 import { CardlistComponent } from './components/cardlist/cardlist.component';
-
 import { CardComponent } from './components/card/card.component';
 import { RouterModule } from '@angular/router';
 const PRODUCTS = [

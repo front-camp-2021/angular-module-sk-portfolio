@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { FiltersService } from '../products/core/filters/filters.service';
+import { FiltersService } from '../../core/filters/filters.service';
 
 
-import { PaginationService } from '../products/core/pagination/pagination.service';
-import { ProductStorageService } from '../products/core/product/product-storage.service';
-import { SearchService } from '../products/core/search/search.service';
+import { PaginationService } from '../../core/pagination/pagination.service';
+import { ProductStorageService } from '../../core/product/product-storage.service';
+import { SearchService } from '../../core/search/search.service';
 
 @Component({
   selector: 'app-cardlist-container',
