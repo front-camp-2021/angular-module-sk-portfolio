@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FieldComponent } from './components/field/field.component';
-import { PaginationComponent } from './components/pagination/pagination.component';
-import { SearchComponent } from './components/search/search.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { RangeSliderComponent } from './components/range-slider/range-slider.component';
+import { FieldComponent } from './shared/field/field.component';
+import { PaginationComponent } from './shared/pagination/pagination.component';
+import { SearchComponent } from './shared/search/search.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { RangeSliderComponent } from './shared/range-slider/range-slider.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
-import { PaginationLinkComponent } from './components/pagination-link/pagination-link.component';
-import { FilterlistComponent } from './components/filterlist/filterlist.component';
-import { CardlistComponent } from './components/cardlist/cardlist.component';
-import { CardComponent } from './components/card/card.component';
+import { PaginationLinkComponent } from './shared/pagination-link/pagination-link.component';
+import { FilterlistComponent } from './shared/filterlist/filterlist.component';
+import { CardlistComponent } from './shared/cardlist/cardlist.component';
+import { CardComponent } from './shared/card/card.component';
 import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 const PRODUCTS = [
   PaginationComponent,
   FieldComponent,
@@ -19,7 +20,6 @@ const PRODUCTS = [
   SearchComponent,
   RangeSliderComponent,
   PaginationLinkComponent,
-
   CardComponent,
   CardlistComponent,
 ]
@@ -30,7 +30,7 @@ const PRODUCTS = [
   ],
   imports: [
     NgxSliderModule,
-    RouterModule,
+    AppRoutingModule,
     CommonModule
   ],
   exports:[

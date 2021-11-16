@@ -16,7 +16,7 @@ import { HomeComponent } from './components/home/home.component';
 import {WishlistComponent} from './components/wishlist/wishlist.component';
 import { SharedModule } from './shared/shared.module';
 import { ProductsModule } from './components/products/products.module';
-import { CardlistContainerComponent } from './components/products/components/cardlist-container/cardlist-container.component';
+import { CardlistContainerComponent } from './components/cardlist-container/cardlist-container.component';
 
 @NgModule({
   declarations: [

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Card } from './card.interface';
+import { Card } from '../../models/card.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +14,14 @@ export class ProductStorageService {
   private searchProducts: any = [];
 
   constructor(private httpClient: HttpClient) {}
+
+
+  getSingleProduct(id: string): Observable<any> {
+    console.log(id);
+    
+    return this.httpClient.get(`${this.cardURL}?id=${id}`);
+  }
+
 
   getSearchResponse(url: string): Observable<any> {
     return this.httpClient.get<Card[]>(url);

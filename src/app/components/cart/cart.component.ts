@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Card } from '../products/core/product/card.interface';
+import { Card } from '../products/models/card.interface';
 import { PaginationService } from '../products/core/pagination/pagination.service';
 import { CartService } from '../products/core/cart/cart.service';
 

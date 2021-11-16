@@ -1,0 +1,31 @@
+<div class="container">
+  <a [routerLink]="['/']" class="btn btn--large btn--violet btn--border-radius"
+    >GO TO HOME</a
+  >
+  <article class="products__item product-card product-card--with-rating">
+    <div class="product-card__main">
+      <div class="product-card__img">
+        <img [src]="card.images[0]" alt="product" />
+      </div>
+      <div class="product-card__info">
+        <div class="product-card__wr">
+          <div class="product-card__rating">
+            <span>
+              {{ card.rating }}
+            </span>
+            <img src="../../../assets/img/icons/star.svg" alt="rating-star" />
+          </div>
+          <div class="product-card__price">
+            {{ card.price | currency: "USD":"symbol":".0" }}
+          </div>
+        </div>
+        <div class="product-card__description">
+          <h3>
+            {{ card.title }}
+          </h3>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>

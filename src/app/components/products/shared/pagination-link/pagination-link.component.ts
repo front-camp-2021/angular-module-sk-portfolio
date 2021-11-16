@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PaginationService } from '../products/core/pagination/pagination.service';
+import { PaginationService } from '../../core/pagination/pagination.service';
 
 @Component({
   selector: 'app-pagination-link',

@@ -1,6 +1,6 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { WishlistService } from '../products/core/wishlist/wishlist.service';
-import { Card } from '../products/core/product/card.interface';
+import { Card } from '../products/models/card.interface';
 import { PaginationService } from '../products/core/pagination/pagination.service';
 
 @Component({

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Field } from './field.interface';
+import { Field } from '../../models/field.interface';
 
 @Injectable({
   providedIn: 'root'

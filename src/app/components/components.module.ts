@@ -8,6 +8,7 @@ import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
 import { ProductsModule } from './products/products.module';
 import { RouterModule } from '@angular/router';
+import { SingleProductComponent } from './single-product/single-product.component';
 
 const COMPONENTS:any = [
 
@@ -15,7 +16,8 @@ const COMPONENTS:any = [
 
 @NgModule({
   declarations: [
-    ...COMPONENTS
+    ...COMPONENTS,
+    SingleProductComponent
   ],
   imports: [
     CommonModule,

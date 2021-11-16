@@ -15,14 +15,14 @@
             {{card.price | currency:'USD':'symbol':'.0'}}
           </div>
         </div>
-        <div class="product-card__description">
+        <a [routerLink]="['/products/', card.id]" class="product-card__description">
           <h3>
             {{card.title}}
           </h3>
           <p>
         
           </p>
-        </div>
+        </a>
       </div>
     </div>
     <div class="product-card__btns">
