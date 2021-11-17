@@ -31,7 +31,7 @@ export class SingleProductComponent implements OnInit, OnDestroy {
     this.activatedRoute.params
     .pipe(takeUntil(this.destroy$))
     .subscribe((params) => (this.id = params.id));
-    console.log(this.id);
+
 
     this.getSingleProduct();
   }
