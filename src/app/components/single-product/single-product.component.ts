@@ -1,43 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductStorageService } from '../products/core/product/product-storage.service';
 import { Card } from '../products/models/card.interface';
-import { ProductsModule } from '../products/products.module';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-single-product',
   templateUrl: './single-product.component.html',
-  styleUrls: ['./single-product.component.scss']
+  styleUrls: ['./single-product.component.scss'],
 })
-export class SingleProductComponent implements OnInit {
-
-  card:Card = {
-    id:'',
-    title:'',
+export class SingleProductComponent implements OnInit, OnDestroy {
+  card: Card = {
+    id: '',
+    title: '',
     rating: 0,
     price: 0,
-    category:'',
-    images:[''],
-    brand:''
-  } 
-  id:string = ''
-
+    category: '',
+    images: [''],
+    brand: '',
+  };
+  id: string = '';
+  private destroy$ = new Subject<void>();
   constructor(
     private activatedRoute: ActivatedRoute,
-    private ProductService: ProductStorageService) { }
+    private ProductService: ProductStorageService
+  ) {}
 
   ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.params.id
+    this.activatedRoute.params
+    .pipe(takeUntil(this.destroy$))
+    .subscribe((params) => (this.id = params.id));
     console.log(this.id);
-    
-    this.getSingleProduct()
- 
-    
+
+    this.getSingleProduct();
+  }
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
-
-  getSingleProduct(){
-    this.ProductService.getSingleProduct(this.id).subscribe(card => {
-      return this.card = card[0]})
+  getSingleProduct() {
+    this.ProductService.getSingleProduct(this.id)
+    .pipe(takeUntil(this.destroy$))
+    .subscribe((card) => {
+      return (this.card = card[0]);
+    });
   }
 }
