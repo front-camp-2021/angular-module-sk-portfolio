@@ -8,7 +8,7 @@ export class PaginationService {
   currentPage: number = 1
   productsOnPage: number = 9
   currentPageProducts:Card[] = []
-  constructor() { }
+
   setNumberOfPages(numberOfProducts:number){    
     this.numberOfPages = Math.ceil(numberOfProducts / this.productsOnPage)
   }

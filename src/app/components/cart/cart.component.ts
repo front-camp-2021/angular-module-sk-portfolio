@@ -14,22 +14,22 @@ export class CartComponent implements OnInit {
   cart:Card[] = []
   numberOfPages = 1
   currentPageProducts:Card[] = []
-  constructor(private CartService: CartService, private PaginationService: PaginationService) { }
+  constructor(private cartService: CartService, private paginationService: PaginationService) { }
 
   ngOnInit(): void {
-    this.cart = this.CartService.getCart()
-    this.PaginationService.setProductForCurrentPage(this.cart)
-    this.currentPageProducts = this.PaginationService.getProductForCurrentPage() 
-    this.PaginationService.setNumberOfPages(this.cart.length )
-    this.numberOfPages = this.PaginationService.getNumberOfPages()
+    this.cart = this.cartService.getCart()
+    this.paginationService.setProductForCurrentPage(this.cart)
+    this.currentPageProducts = this.paginationService.getProductForCurrentPage() 
+    this.paginationService.setNumberOfPages(this.cart.length )
+    this.numberOfPages = this.paginationService.getNumberOfPages()
 
   }
   ngDoCheck():void{
-    this.cart = this.CartService.getCart()
-    this.PaginationService.setProductForCurrentPage(this.cart)
-    this.currentPageProducts = this.PaginationService.getProductForCurrentPage() 
-    this.PaginationService.setNumberOfPages(this.cart.length )
-    this.numberOfPages = this.PaginationService.getNumberOfPages()
+    this.cart = this.cartService.getCart()
+    this.paginationService.setProductForCurrentPage(this.cart)
+    this.currentPageProducts = this.paginationService.getProductForCurrentPage() 
+    this.paginationService.setNumberOfPages(this.cart.length )
+    this.numberOfPages = this.paginationService.getNumberOfPages()
   }
 
 }

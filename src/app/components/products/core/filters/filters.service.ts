@@ -16,7 +16,7 @@ export class FiltersService {
   private ratingSlider = {}
   private priceSlider = {}
   private filterUrl: string = ''
-  private fieldsState:any = []
+  private fieldsState:Field[] = []
 
   constructor(private httpClient: HttpClient) { }
 
@@ -82,7 +82,7 @@ export class FiltersService {
     return this.filterUrl
   }
   setFieldsState(newField:Field){
-    const fieldsStateValid = this.fieldsState.some((field:any) => field.value === newField.value)
+    const fieldsStateValid = this.fieldsState.some((field:Field) => field.value === newField.value)
     fieldsStateValid ? null :  this.fieldsState.push(newField)
   }
   clearActiveFilters(){

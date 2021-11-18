@@ -1,12 +1,12 @@
 <main>
     <section class="products-list">
         <div class="container ">    
-            <a [routerLink]="['/']"  class="btn btn--violet btn--large clear-wishlist btn--border-radius">back to home</a>
-            <a [routerLink]="['/cart']"  class="btn btn--violet btn--large clear-wishlist btn--border-radius">go to cart</a>
-            <div class="products-list__inner">
+            <a routerLink="/"  class="btn btn--violet btn--large clear-wishlist btn--border-radius">back to home</a>
+            <a routerLink="/cart"  class="btn btn--violet btn--large clear-wishlist btn--border-radius">go to cart</a>
+            <!-- <div class="products-list__inner">
                 <app-cardlist [currentPageProducts]="currentPageProducts"></app-cardlist>
-            </div>
-            <app-pagination *ngIf="numberOfPages > 1" [numberOfPages]="numberOfPages"></app-pagination>
+            </div> -->
+            <!-- <app-pagination [numberOfPages]="numberOfPages" *ngIf="numberOfPages > 1" ></app-pagination> -->
         </div>
     </section>
 </main>

@@ -7,6 +7,7 @@ import { FiltersService } from '../products/core/filters/filters.service';
 import { PaginationService } from '../products/core/pagination/pagination.service';
 import { ProductStorageService } from '../products/core/product/product-storage.service';
 import { SearchService } from '../products/core/search/search.service';
+import { Card } from '../products/models/card.interface';
 
 @Component({
   selector: 'app-cardlist-container',
@@ -15,49 +16,49 @@ import { SearchService } from '../products/core/search/search.service';
 })
 export class CardlistContainerComponent implements OnInit {
 
-  cardlist: any = [];
+  cardlist: Card[] = [];
   searchValue:string = '' 
-  filteredProducts:any = []
-  searchProducts:any = []
-  activeBrandFilters:any = []
-  activeCategoriesFilters:any = []
+  filteredProducts:Card[] = []
+  searchProducts:Card[] = []
+  activeBrandFilters:string[] = []
+  activeCategoriesFilters:string[] = []
   slidersValues:any 
   sliderStatus = false
-  cardlistFromRange:any = []
+  cardlistFromRange:Card[] = []
   findedProducts = 0
   numberOfPages = 1
-  currentPageProducts:any = []
+  currentPageProducts:Card[] = []
   private destroy$ = new Subject<void>()
 
   constructor(
-    private ProductStorageService: ProductStorageService, 
-    private FiltersService:FiltersService, 
-    private SearchService: SearchService,
-    private PaginationService: PaginationService
+    private productStorageService: ProductStorageService, 
+    private filtersService:FiltersService, 
+    private searchService: SearchService,
+    private paginationService: PaginationService
     ) { }
 
   ngOnInit(): void {
     this.getAllProducts()
   }
   ngDoCheck(): void {
-    this.searchValue = this.SearchService.getSearchValue()
-    this.activeBrandFilters = this.FiltersService.getActiveBrandFilters()
-    this.activeCategoriesFilters = this.FiltersService.getActiveCategoryFilters()
-    this.slidersValues = this.FiltersService.getSlidersValue()
+    this.searchValue = this.searchService.getSearchValue()
+    this.activeBrandFilters = this.filtersService.getActiveBrandFilters()
+    this.activeCategoriesFilters = this.filtersService.getActiveCategoryFilters()
+    this.slidersValues = this.filtersService.getSlidersValue()
     
     if(this.activeBrandFilters.length !== 0 || this.activeCategoriesFilters.length !== 0 || this.searchValue.length !== 0 ){
-      this.filteredProducts = this.ProductStorageService.getFilteredProducts()
-      this.searchProducts = this.ProductStorageService.getSearchProducts()
-      this.cardlist = this.ProductStorageService.setProducts(this.searchValue, this.filteredProducts, this.searchProducts )
+      this.filteredProducts = this.productStorageService.getFilteredProducts()
+      this.searchProducts = this.productStorageService.getSearchProducts()
+      this.cardlist = this.productStorageService.setProducts(this.searchValue, this.filteredProducts, this.searchProducts )
     } else {
-      this.cardlist = this.ProductStorageService.getAllProducts()
+      this.cardlist = this.productStorageService.getAllProducts()
     }
-    this.cardlistFromRange = this.ProductStorageService.getProductsFromRange(this.cardlist, this.slidersValues)
+    this.cardlistFromRange = this.productStorageService.getProductsFromRange(this.cardlist, this.slidersValues)
     this.findedProducts = this.cardlistFromRange.length
-    this.PaginationService.setNumberOfPages(this.findedProducts)
-    this.numberOfPages = this.PaginationService.getNumberOfPages()
-    this.PaginationService.setProductForCurrentPage(this.cardlistFromRange)
-    this.currentPageProducts = this.PaginationService.getProductForCurrentPage()
+    this.paginationService.setNumberOfPages(this.findedProducts)
+    this.numberOfPages = this.paginationService.getNumberOfPages()
+    this.paginationService.setProductForCurrentPage(this.cardlistFromRange)
+    this.currentPageProducts = this.paginationService.getProductForCurrentPage()
     
   }
   ngOnDestroy(): void {
@@ -66,9 +67,9 @@ export class CardlistContainerComponent implements OnInit {
   }
 
   getAllProducts(): void {
-    this.ProductStorageService.getProductsResponse()
+    this.productStorageService.getProductsResponse()
       .pipe(takeUntil(this.destroy$))
       .subscribe(cards => {
-        return this.ProductStorageService.setAllProducts(cards)});
+        return this.productStorageService.setAllProducts(cards)});
   }
 }

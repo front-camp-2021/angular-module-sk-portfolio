@@ -1,10 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ComponentsModule } from './components/components.module';
-
 import { AppRoutingModule } from './app-routing.module';
-
 
 
 
@@ -17,6 +14,8 @@ import {WishlistComponent} from './components/wishlist/wishlist.component';
 import { SharedModule } from './shared/shared.module';
 import { ProductsModule } from './components/products/products.module';
 import { CardlistContainerComponent } from './components/cardlist-container/cardlist-container.component';
+import { RouterModule } from '@angular/router';
+import { SingleProductComponent } from './components/single-product/single-product.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +25,7 @@ import { CardlistContainerComponent } from './components/cardlist-container/card
     CartComponent,
     NotFoundComponent,
     CardlistContainerComponent,
+    SingleProductComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +33,7 @@ import { CardlistContainerComponent } from './components/cardlist-container/card
     SharedModule,
     HttpClientModule,
     ProductsModule,
-    ComponentsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import { FiltersService } from '../../core/filters/filters.service';
 import { ProductStorageService } from '../../core/product/product-storage.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Field } from '../../models/field.interface';
 
 
 
@@ -13,7 +14,10 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class FieldComponent implements OnInit {
 
-  @Input() field:any;
+  @Input() field:Field = {
+    value: '',
+    checked: false
+  };
   @Input() type: any;
   private cardURL = 'http://localhost:3001/products';
   private activeBrandFilters: any = []

@@ -12,10 +12,11 @@
             <img src="../../../assets/img/icons/star.svg" alt="rating-star">
           </div>
           <div class="product-card__price">
-            {{card.price | currency:'USD':'symbol':'.0'}}
+            ${{card.price }}
           </div>
         </div>
-        <a [routerLink]="['/products/', card.id]" class="product-card__description">
+        
+        <a [routerLink]="['/products/', card.id]"  class="product-card__description">
           <h3>
             {{card.title}}
           </h3>

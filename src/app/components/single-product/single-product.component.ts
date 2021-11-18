@@ -19,12 +19,15 @@ export class SingleProductComponent implements OnInit, OnDestroy {
     category: '',
     images: [''],
     brand: '',
+    isCart: false,
+    isWished: false,
+    uniqId: 0
   };
   id: string = '';
   private destroy$ = new Subject<void>();
   constructor(
     private activatedRoute: ActivatedRoute,
-    private ProductService: ProductStorageService
+    private productService: ProductStorageService
   ) {}
 
   ngOnInit(): void {
@@ -41,7 +44,7 @@ export class SingleProductComponent implements OnInit, OnDestroy {
   }
 
   getSingleProduct() {
-    this.ProductService.getSingleProduct(this.id)
+    this.productService.getSingleProduct(this.id)
     .pipe(takeUntil(this.destroy$))
     .subscribe((card) => {
       return (this.card = card[0]);

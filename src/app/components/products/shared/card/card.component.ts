@@ -2,29 +2,32 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CartService } from 'src/app/components/products/core/cart/cart.service';
 import { WishlistService } from '../../core/wishlist/wishlist.service';
 import { v4 as uuidv4 } from 'uuid';
+import {Card} from "../../models/card.interface"
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit {
-
-
-
-  @Input() card: any;
+export class CardComponent {
+  @Input() card: Card = {
+    id: '',
+    title: '',
+    rating: 0,
+    price: 0,
+    category: '',
+    images: [''],
+    brand: '',
+    isCart: false,
+    isWished: false,
+    uniqId: 0
+  };;
   isWished: boolean = false;
   isCart: boolean = false;
 
   constructor(
     private wishlistServices: WishlistService,
     private cartServices: CartService) {
-
   }
-  ngOnInit(): void {
-   
-  }
-
-
   toggleCart(card:any):void{
     if(!card.isCart){
       this.isWished ? 

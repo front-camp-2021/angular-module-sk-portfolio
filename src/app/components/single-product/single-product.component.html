@@ -1,7 +1,7 @@
 <div class="container">
-  <a [routerLink]="['/']" class="btn btn--large btn--violet btn--border-radius"
-    >GO TO HOME</a
-  >
+  <a routerLink="/" class="btn btn--large btn--violet btn--border-radius">
+    GO TO HOME
+  </a>
   <article class="products__item product-card product-card--with-rating">
     <div class="product-card__main">
       <div class="product-card__img">
@@ -16,7 +16,7 @@
             <img src="../../../assets/img/icons/star.svg" alt="rating-star" />
           </div>
           <div class="product-card__price">
-            {{ card.price | currency: "USD":"symbol":".0" }}
+            ${{ card.price }}
           </div>
         </div>
         <div class="product-card__description">

@@ -11,15 +11,15 @@ export class PaginationComponent implements OnInit, DoCheck {
   currentPage = 1;
   pagesArr: number[] = [];
 
-  constructor(private PaginationService:PaginationService) {}
+  constructor(private paginationService:PaginationService) {}
 
   ngOnInit(): void {
     this.setPaginationNumbersArr();
-    this.currentPage = this.PaginationService.getCurrentPageNumber()
+    this.currentPage = this.paginationService.getCurrentPageNumber()
   }
   ngDoCheck(): void {
     this.setPaginationNumbersArr();
-    this.currentPage = this.PaginationService.getCurrentPageNumber()
+    this.currentPage = this.paginationService.getCurrentPageNumber()
   }
 
   setPaginationNumbersArr(): void {
@@ -31,11 +31,11 @@ export class PaginationComponent implements OnInit, DoCheck {
   }
   goToPrevPage():void{
     const prevPageNumber = this.currentPage - 1
-    this.PaginationService.setCurrentPageNumber(prevPageNumber)
+    this.paginationService.setCurrentPageNumber(prevPageNumber)
   }
   goToNextPage():void{
     const nextPageNumber = this.currentPage + 1
     
-    this.PaginationService.setCurrentPageNumber(nextPageNumber)
+    this.paginationService.setCurrentPageNumber(nextPageNumber)
   }
 }

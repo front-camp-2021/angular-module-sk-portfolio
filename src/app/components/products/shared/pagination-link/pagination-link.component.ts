@@ -10,13 +10,13 @@ export class PaginationLinkComponent implements OnInit {
 
   @Input() currentPage:number = 1
   @Input() linkNumber:number = 1
-  constructor(private PaginationService: PaginationService) { }
+  constructor(private paginationService: PaginationService) { }
 
   ngOnInit(): void {
   
   }
   setCurrentPageNumber():void{
-    this.PaginationService.setCurrentPageNumber(this.linkNumber)
+    this.paginationService.setCurrentPageNumber(this.linkNumber)
   }
 
 }

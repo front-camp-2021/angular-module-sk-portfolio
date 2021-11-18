@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class SearchService {
   private searchValue:string = ''
-  constructor() { }
   setSearchValue(value: string) {
     this.searchValue = value
   }

@@ -5,8 +5,6 @@
 
     <ul class="pagination__list">
         <app-pagination-link *ngFor="let linkNumber of pagesArr" [currentPage]="currentPage" [linkNumber]="linkNumber" ></app-pagination-link>
-        <!-- <li class="pagination__item"><a class="pagination__link--current pagination__link" href="#"></a></li> -->
-     
     </ul>
     <button class="pagination__btn pagination__btn--right" (click)="goToNextPage()">
         <img src="../../../assets/img/icons/arrow-left.svg" alt="prev">

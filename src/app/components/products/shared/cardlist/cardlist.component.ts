@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, DoCheck, Input } from '@angular/core';
 import { WishlistService } from '../../core/wishlist/wishlist.service';
+import {Card} from "../../models/card.interface"
 
 @Component({
   selector: 'app-cardlist',
@@ -9,9 +10,9 @@ import { WishlistService } from '../../core/wishlist/wishlist.service';
 export class CardlistComponent implements OnInit, OnDestroy, DoCheck {
   @Input() currentPageProducts: any = [];
   @Input() numberOfPages = 1;
-  wishlist = [];
+  wishlist:Card[] = [];
 
-  constructor(private WishlistService: WishlistService) {}
+  constructor(private wishlistService: WishlistService) {}
 
   ngOnInit(): void {
     this.setWishProducts()
@@ -21,7 +22,7 @@ export class CardlistComponent implements OnInit, OnDestroy, DoCheck {
   }
   ngOnDestroy(): void {}
   setWishProducts() {
-    this.wishlist = this.WishlistService.getWishlist();
+    this.wishlist = this.wishlistService.getWishlist();
     this.currentPageProducts = this.currentPageProducts.map((product: any) =>
       this.wishlist.some((wishProduct: any) => wishProduct.id === product.id)
         ? {...product, isWished:true}

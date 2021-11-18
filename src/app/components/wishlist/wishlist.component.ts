@@ -11,24 +11,24 @@ import { PaginationService } from '../products/core/pagination/pagination.servic
 export class WishlistComponent implements OnInit, DoCheck {
 
   wishlist:Card[] = []
-  numberOfPages = 1
+  numberOfPages:number = 1
   currentPageProducts:Card[] = []
-  constructor(private WishlistService: WishlistService, private PaginationService: PaginationService) { }
+  constructor(private wishlistService: WishlistService, private paginationService: PaginationService) { }
 
   ngOnInit(): void {
-    this.wishlist = this.WishlistService.getWishlist()
-    this.PaginationService.setProductForCurrentPage(this.wishlist)
-    this.currentPageProducts = this.PaginationService.getProductForCurrentPage() 
-    this.PaginationService.setNumberOfPages(this.wishlist.length )
-    this.numberOfPages = this.PaginationService.getNumberOfPages()
+    this.wishlist = this.wishlistService.getWishlist()
+    this.paginationService.setProductForCurrentPage(this.wishlist)
+    this.currentPageProducts = this.paginationService.getProductForCurrentPage() 
+    this.paginationService.setNumberOfPages(this.wishlist.length )
+    this.numberOfPages = this.paginationService.getNumberOfPages()
 
   }
   ngDoCheck():void{
-    this.wishlist = this.WishlistService.getWishlist()
-    this.PaginationService.setProductForCurrentPage(this.wishlist)
-    this.currentPageProducts = this.PaginationService.getProductForCurrentPage() 
-    this.PaginationService.setNumberOfPages(this.wishlist.length )
-    this.numberOfPages = this.PaginationService.getNumberOfPages()
+    this.wishlist = this.wishlistService.getWishlist()
+    this.paginationService.setProductForCurrentPage(this.wishlist)
+    this.currentPageProducts = this.paginationService.getProductForCurrentPage() 
+    this.paginationService.setNumberOfPages(this.wishlist.length )
+    this.numberOfPages = this.paginationService.getNumberOfPages()
   }
 
 }

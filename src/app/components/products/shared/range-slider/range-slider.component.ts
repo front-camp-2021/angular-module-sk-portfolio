@@ -8,9 +8,9 @@ import { FiltersService } from '../../core/filters/filters.service';
   styleUrls: ['./range-slider.component.scss']
 })
 export class RangeSliderComponent implements OnInit {
-  @Input() title: any
-  @Input() value: any
-  @Input() highValue: any
+  @Input() title: string = ''
+  @Input() value: number = 0
+  @Input() highValue: number = 0
   @Input() minValue: number = 0
   @Input() maxValue: number = 100
   @Input() step: number = 1

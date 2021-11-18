@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { FieldComponent } from './shared/field/field.component';
 import { PaginationComponent } from './shared/pagination/pagination.component';
 import { SearchComponent } from './shared/search/search.component';
@@ -10,8 +11,8 @@ import { PaginationLinkComponent } from './shared/pagination-link/pagination-lin
 import { FilterlistComponent } from './shared/filterlist/filterlist.component';
 import { CardlistComponent } from './shared/cardlist/cardlist.component';
 import { CardComponent } from './shared/card/card.component';
-import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { RouterModule } from '@angular/router';
 const PRODUCTS = [
   PaginationComponent,
   FieldComponent,
@@ -31,7 +32,8 @@ const PRODUCTS = [
   imports: [
     NgxSliderModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports:[
     ...PRODUCTS,
