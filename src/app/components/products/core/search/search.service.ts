@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SearchService {
-  private searchValue:string = ''
+  private searchValue: string = '';
   setSearchValue(value: string) {
-    this.searchValue = value
+    this.searchValue = value;
   }
-  getSearchValue(): string{
-    return this.searchValue
+  getSearchValue(): string {
+    return this.searchValue;
   }
 }

@@ -23,20 +23,11 @@ const PRODUCTS = [
   PaginationLinkComponent,
   CardComponent,
   CardlistComponent,
-]
+];
 
 @NgModule({
-  declarations: [
-    ...PRODUCTS,
-  ],
-  imports: [
-    NgxSliderModule,
-    AppRoutingModule,
-    CommonModule,
-    RouterModule
-  ],
-  exports:[
-    ...PRODUCTS,
-  ]
+  declarations: [...PRODUCTS],
+  imports: [NgxSliderModule, AppRoutingModule, CommonModule, RouterModule],
+  exports: [...PRODUCTS],
 })
-export class ProductsModule { }
+export class ProductsModule {}

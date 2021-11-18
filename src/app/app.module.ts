@@ -3,14 +3,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
-
-
 import { AppComponent } from './components/master/app.component';
 
-import {NotFoundComponent} from './components/not-found/not-found.component'
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
-import {WishlistComponent} from './components/wishlist/wishlist.component';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { SharedModule } from './shared/shared.module';
 import { ProductsModule } from './components/products/products.module';
 import { CardlistContainerComponent } from './components/cardlist-container/cardlist-container.component';
@@ -25,7 +23,7 @@ import { SingleProductComponent } from './components/single-product/single-produ
     CartComponent,
     NotFoundComponent,
     CardlistContainerComponent,
-    SingleProductComponent
+    SingleProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,9 +31,9 @@ import { SingleProductComponent } from './components/single-product/single-produ
     SharedModule,
     HttpClientModule,
     ProductsModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

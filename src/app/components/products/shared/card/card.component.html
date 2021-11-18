@@ -33,7 +33,10 @@
       </button>
       <button class="product-card__btn btn btn--violet" (click)="toggleCart(card)">
         <img [src]="card.isCart ? '../../../assets/img/icons/delete-from-cart.svg' : '../../../assets/img/icons/bag.svg'" alt="bag">
-        <span>{{ card.isCart ? "REMOVE FROM CART" : "ADD TO CART" }}</span>
+        <span>
+          {{ card.isCart ? "REMOVE FROM CART" : "ADD TO CART" }}
+         
+        </span>
       </button>
     </div>
   </article>

@@ -7,31 +7,32 @@ import { SearchService } from '../../core/search/search.service';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
+  private productsUrl: any = new URL('http://localhost:3001/products');
 
-  private productsUrl: any = new URL('http://localhost:3001/products')
+  private destroy$ = new Subject<void>();
 
-  private destroy$ = new Subject<void>()
+  constructor(
+    private ProductStorageService: ProductStorageService,
+    private SearchService: SearchService
+  ) {}
 
-  constructor(private ProductStorageService: ProductStorageService, private SearchService: SearchService) { }
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
   ngOnDestroy(): void {
-    this.destroy$.next()
-    this.destroy$.complete()
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   getSearhUrl(e: any, inputValue: string): void {
-    e.preventDefault()
-    this.SearchService.setSearchValue(inputValue)
-    this.productsUrl.searchParams.set("q", inputValue)
+    e.preventDefault();
+    this.SearchService.setSearchValue(inputValue);
+    this.productsUrl.searchParams.set('q', inputValue);
     this.ProductStorageService.getSearchResponse(this.productsUrl.href)
       .pipe(takeUntil(this.destroy$))
-      .subscribe(response => this.ProductStorageService.setSearchProducts(response))
-
+      .subscribe((response) =>
+        this.ProductStorageService.setSearchProducts(response)
+      );
   }
 }

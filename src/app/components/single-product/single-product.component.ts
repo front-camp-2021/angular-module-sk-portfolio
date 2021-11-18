@@ -1,4 +1,4 @@
-import { Component, OnInit ,OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductStorageService } from '../products/core/product/product-storage.service';
 import { Card } from '../products/models/card.interface';
@@ -21,7 +21,7 @@ export class SingleProductComponent implements OnInit, OnDestroy {
     brand: '',
     isCart: false,
     isWished: false,
-    uniqId: 0
+    uniqId: 0,
   };
   id: string = '';
   private destroy$ = new Subject<void>();
@@ -32,10 +32,8 @@ export class SingleProductComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.activatedRoute.params
-    .pipe(takeUntil(this.destroy$))
-    .subscribe((params) => (this.id = params.id));
-
-
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((params) => (this.id = params.id));
     this.getSingleProduct();
   }
   ngOnDestroy(): void {
@@ -44,10 +42,11 @@ export class SingleProductComponent implements OnInit, OnDestroy {
   }
 
   getSingleProduct() {
-    this.productService.getSingleProduct(this.id)
-    .pipe(takeUntil(this.destroy$))
-    .subscribe((card) => {
-      return (this.card = card[0]);
-    });
+    this.productService
+      .getSingleProduct(this.id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((card) => {
+        return (this.card = card[0]);
+      });
   }
 }

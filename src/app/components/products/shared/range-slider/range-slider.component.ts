@@ -5,37 +5,38 @@ import { FiltersService } from '../../core/filters/filters.service';
 @Component({
   selector: 'app-range-slider',
   templateUrl: './range-slider.component.html',
-  styleUrls: ['./range-slider.component.scss']
+  styleUrls: ['./range-slider.component.scss'],
 })
 export class RangeSliderComponent implements OnInit {
-  @Input() title: string = ''
-  @Input() value: number = 0
-  @Input() highValue: number = 0
-  @Input() minValue: number = 0
-  @Input() maxValue: number = 100
-  @Input() step: number = 1
-  sliderStatus = false
+  @Input() title: string = '';
+  @Input() value: number = 0;
+  @Input() highValue: number = 0;
+  @Input() minValue: number = 0;
+  @Input() maxValue: number = 100;
+  @Input() step: number = 1;
+  sliderStatus = false;
   options: Options = {
     floor: this.minValue,
     ceil: this.maxValue,
     step: this.step,
     minRange: 1,
-    noSwitching:false 
+    noSwitching: false,
   };
 
-
-  constructor(private FiltersService: FiltersService) { }
+  constructor(private FiltersService: FiltersService) {}
 
   ngOnInit(): void {
-    
     this.options = {
       floor: this.minValue,
       ceil: this.maxValue,
-      step: this.step
-    }
-    this.setSliderValues({value:this.value, highValue:this.highValue},  this.title)
+      step: this.step,
+    };
+    this.setSliderValues(
+      { value: this.value, highValue: this.highValue },
+      this.title
+    );
   }
-  setSliderValues(e:any, title:string):void{
-    this.FiltersService.setSlidersValue(e, title)
-  }             
+  setSliderValues(e: any, title: string): void {
+    this.FiltersService.setSlidersValue(e, title);
+  }
 }

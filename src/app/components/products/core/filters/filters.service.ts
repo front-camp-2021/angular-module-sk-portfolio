@@ -4,92 +4,101 @@ import { Observable } from 'rxjs';
 import { Field } from '../../models/field.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FiltersService {
-
   private categoriesURL = 'http://localhost:3001/categories';
   private brandsURL = 'http://localhost:3001/brands';
 
-  private activeCategoryFields: string[] = []
-  private activeBrandFields: string[] = []
-  private ratingSlider = {}
-  private priceSlider = {}
-  private filterUrl: string = ''
-  private fieldsState:Field[] = []
+  private activeCategoryFields: string[] = [];
+  private activeBrandFields: string[] = [];
+  private ratingSlider = {};
+  private priceSlider = {};
+  private filterUrl: string = '';
+  private fieldsState: Field[] = [];
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getCategories(): Observable<any> {
-    return this.httpClient.get(this.categoriesURL)
+    return this.httpClient.get(this.categoriesURL);
   }
 
   getBrands(): Observable<any> {
-    return this.httpClient.get(this.brandsURL)
+    return this.httpClient.get(this.brandsURL);
   }
 
   setFilterList(filterlist: [], listType: string) {
-    return [listType, filterlist]
+    return [listType, filterlist];
   }
 
-  setSlidersValue(e:any, type: string): void {
+  setSlidersValue(e: any, type: string): void {
     switch (type) {
-      case ('price'):
+      case 'price':
         this.priceSlider = {
           type: type,
           min: e.value,
-          max: e.highValue
-        }
-        break
-      case ('rating'):
+          max: e.highValue,
+        };
+        break;
+      case 'rating':
         this.ratingSlider = {
           type: type,
           min: e.value,
-          max: e.highValue
-        }
-        break
+          max: e.highValue,
+        };
+        break;
     }
   }
-  getSlidersValue(){
-    return [this.priceSlider, this.ratingSlider]
+  getSlidersValue() {
+    return [this.priceSlider, this.ratingSlider];
   }
-  
+
   addActiveCategoryField(value: string) {
-    return this.activeCategoryFields.push(value)
+    return this.activeCategoryFields.push(value);
   }
   removeActiveCategoryField(value: string) {
-    return this.activeCategoryFields = this.activeCategoryFields.filter(activeCategoryField => activeCategoryField !== value)
+    return (this.activeCategoryFields = this.activeCategoryFields.filter(
+      (activeCategoryField) => activeCategoryField !== value
+    ));
   }
 
   addActiveBrandField(value: string) {
-    return this.activeBrandFields.push(value)
+    return this.activeBrandFields.push(value);
   }
   removeActiveBrandField(value: string) {
-    return this.activeBrandFields = this.activeBrandFields.filter(activeBrandField => activeBrandField !== value)
+    return (this.activeBrandFields = this.activeBrandFields.filter(
+      (activeBrandField) => activeBrandField !== value
+    ));
   }
   getActiveBrandFilters() {
-    return this.activeBrandFields
+    return this.activeBrandFields;
   }
   getActiveCategoryFilters() {
-    return this.activeCategoryFields
+    return this.activeCategoryFields;
   }
-  setFiltersUrl(url: string, categoryFilters: string[], brandFilters: string[]) {
-    const categoryString = categoryFilters.join('&')
-    const brandString = brandFilters.join('&')
-    this.filterUrl = `${url}?${categoryString}&${brandString}`
+  setFiltersUrl(
+    url: string,
+    categoryFilters: string[],
+    brandFilters: string[]
+  ) {
+    const categoryString = categoryFilters.join('&');
+    const brandString = brandFilters.join('&');
+    this.filterUrl = `${url}?${categoryString}&${brandString}`;
   }
   getFiltersUrl() {
-    return this.filterUrl
+    return this.filterUrl;
   }
-  setFieldsState(newField:Field){
-    const fieldsStateValid = this.fieldsState.some((field:Field) => field.value === newField.value)
-    fieldsStateValid ? null :  this.fieldsState.push(newField)
+  setFieldsState(newField: Field) {
+    const fieldsStateValid = this.fieldsState.some(
+      (field: Field) => field.value === newField.value
+    );
+    fieldsStateValid ? null : this.fieldsState.push(newField);
   }
-  clearActiveFilters(){
-    this.activeBrandFields = []
-    this.activeCategoryFields = []
+  clearActiveFilters() {
+    this.activeBrandFields = [];
+    this.activeCategoryFields = [];
   }
-  getFieldsState(){
-    return this.fieldsState
+  getFieldsState() {
+    return this.fieldsState;
   }
 }

@@ -1,29 +1,24 @@
-import { Component,Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FiltersService } from '../../core/filters/filters.service';
 import { Field } from '../../models/field.interface';
-
 
 @Component({
   selector: 'app-filterlist',
   templateUrl: './filterlist.component.html',
-  styleUrls: ['./filterlist.component.scss']
+  styleUrls: ['./filterlist.component.scss'],
 })
-
 export class FilterlistComponent implements OnInit {
-
   @Input() categories = [];
   @Input() brands = [];
-  checked:boolean = false
-  filtersState:Field[] = []
+  checked: boolean = false;
+  filtersState: Field[] = [];
 
-  constructor(private FiltersService: FiltersService) { }
+  constructor(private FiltersService: FiltersService) {}
 
   ngOnInit(): void {
-    this.filtersState = this.FiltersService.getFieldsState()
-    
+    this.filtersState = this.FiltersService.getFieldsState();
   }
   ngDoCheck(): void {
-    this.filtersState = this.FiltersService.getFieldsState()
+    this.filtersState = this.FiltersService.getFieldsState();
   }
-
 }

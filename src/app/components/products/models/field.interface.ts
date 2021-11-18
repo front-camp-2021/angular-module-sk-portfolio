@@ -1,4 +1,4 @@
 export interface Field {
-    value: string,
-    checked: boolean
+  value: string;
+  checked: boolean;
 }

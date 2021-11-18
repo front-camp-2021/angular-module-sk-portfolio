@@ -15,12 +15,9 @@ export class ProductStorageService {
 
   constructor(private httpClient: HttpClient) {}
 
-
   getSingleProduct(id: string): Observable<any> {
-
     return this.httpClient.get(`${this.cardURL}?id=${id}`);
   }
-
 
   getSearchResponse(url: string): Observable<any> {
     return this.httpClient.get<Card[]>(url);
@@ -65,7 +62,7 @@ export class ProductStorageService {
   getProductsFromRange(products: Card[], slidersValues: any) {
     const priceRange = slidersValues[0];
     const ratingRange = slidersValues[1];
-    
+
     const priceRangeProducts = products.filter(
       (card: any) =>
         priceRange.min <= card.price && card.price <= priceRange.max
