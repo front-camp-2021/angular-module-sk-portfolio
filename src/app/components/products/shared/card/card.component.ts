@@ -29,7 +29,7 @@ export class CardComponent {
     private wishlistServices: WishlistService,
     private cartServices: CartService
   ) {}
-  toggleCart(card: any): void {
+  toggleCart(card: Card): void {
     if (!card.isCart) {
       this.isWished
         ? this.cartServices.addToCart({

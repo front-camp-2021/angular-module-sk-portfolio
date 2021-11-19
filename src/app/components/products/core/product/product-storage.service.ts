@@ -9,9 +9,9 @@ import { Card } from '../../models/card.interface';
 export class ProductStorageService {
   private cardURL = 'http://localhost:3001/products';
 
-  private products: any = [];
-  private filteredProducts: any = [];
-  private searchProducts: any = [];
+  private products: Card[] = [];
+  private filteredProducts:  Card[] = [];
+  private searchProducts:  Card[] = [];
 
   constructor(private httpClient: HttpClient) {}
 
@@ -31,29 +31,29 @@ export class ProductStorageService {
     return this.httpClient.get<Card[]>(`${url}`);
   }
 
-  setFilteredProducts(response: any): void {
+  setFilteredProducts(response:  Card[]): void {
     this.filteredProducts = response;
   }
-  setSearchProducts(response: any): void {
+  setSearchProducts(response:  Card[]): void {
     this.searchProducts = response;
   }
-  setAllProducts(response: any): void {
+  setAllProducts(response:  Card[]): void {
     this.products = response;
   }
 
   setProducts(
     searchValue: string,
-    filteredProducts: any = [],
-    searchProducts: any = []
+    filteredProducts:  Card[] = [],
+    searchProducts:  Card[] = []
   ) {
     if (searchValue.length !== 0 && filteredProducts.length === 0) {
       return searchProducts;
     } else if (searchValue.length === 0 && filteredProducts.length !== 0) {
       return filteredProducts;
     } else {
-      return filteredProducts.filter((filteredProduct: any) => {
+      return filteredProducts.filter((filteredProduct:  Card) => {
         return searchProducts.some(
-          (productSearch: any) => productSearch.id === filteredProduct.id
+          (productSearch: Card) => productSearch.id === filteredProduct.id
         );
       });
     }
@@ -64,11 +64,11 @@ export class ProductStorageService {
     const ratingRange = slidersValues[1];
 
     const priceRangeProducts = products.filter(
-      (card: any) =>
+      (card:  Card) =>
         priceRange.min <= card.price && card.price <= priceRange.max
     );
     const ratingRangeProducts = priceRangeProducts.filter(
-      (card: any) =>
+      (card:  Card) =>
         ratingRange.min <= card.rating && card.rating <= ratingRange.max
     );
     return ratingRangeProducts;

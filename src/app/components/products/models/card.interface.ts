@@ -8,5 +8,5 @@ export interface Card {
   category: string;
   isCart: boolean;
   isWished: boolean;
-  uniqId: number;
+  uniqId: any;
 }

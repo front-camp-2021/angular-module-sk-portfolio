@@ -15,10 +15,10 @@ export class FieldComponent {
     value: '',
     checked: false,
   };
-  @Input() type: any;
+  @Input() type: string = '';
   private cardURL = 'http://localhost:3001/products';
-  private activeBrandFilters: any = [];
-  private activeCategoryFilters: any = [];
+  private activeBrandFilters: string[] = [];
+  private activeCategoryFilters: string[] = [];
 
   filterUrl: string = '';
   constructor(
