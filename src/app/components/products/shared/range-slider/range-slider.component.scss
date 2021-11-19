@@ -1,0 +1,16 @@
+@import "../../../../../assets/style/variables";
+:host {
+  ::ng-deep {
+    .ngx-slider {
+      .ngx-slider-bubble.ngx-slider-limit {
+        display: none;
+      }
+      .ngx-slider-selection,
+      .ngx-slider-pointer,
+      .ngx-slider-pointer:after,
+      .ngx-slider-pointer.ngx-slider-active:after {
+        background: $violet;
+      }
+    }
+  }
+}

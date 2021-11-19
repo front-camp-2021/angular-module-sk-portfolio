@@ -1,0 +1,17 @@
+<label
+  class="field field--checkbox sidebar__field"
+  (click)="toggleActiveField()"
+>
+  <input
+    type="checkbox"
+    [checked]="field.checked"
+    [disabled]="true"
+    [value]="field.value"
+  />
+  <span class="field__checkbox-substitute"> </span>
+  <span class="field__info">
+    <span class="field__name">
+      {{ field.value }}
+    </span>
+  </span>
+</label>

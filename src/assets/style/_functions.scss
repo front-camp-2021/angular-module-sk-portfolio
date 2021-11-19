@@ -1,0 +1,23 @@
+@function pxToRem($value) {
+    @return strip-unit($value)/10 + px
+}
+
+@function remToPx($value) {
+    @return remToNum($value) + px;
+}
+
+@function remToNum($value) {
+    @return strip-unit($value) * 10;
+}
+
+@function numToRem($value) {
+    @return #{$value/10 + rem}
+}
+
+@function numToPx($value) {
+    @return #{$value + px}
+}
+
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}

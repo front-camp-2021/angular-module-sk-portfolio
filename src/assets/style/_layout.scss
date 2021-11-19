@@ -1,0 +1,15 @@
+.container {
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-right: $containerPaddingS;
+    padding-left: $containerPaddingS;
+    @media (min-width: 720px) {
+        padding-right: $containerPaddingM;
+        padding-left: $containerPaddingM;
+    }
+    @media (min-width: 1200px) {
+        padding-right: $containerPadding;
+        padding-left: $containerPadding;
+    }
+}
