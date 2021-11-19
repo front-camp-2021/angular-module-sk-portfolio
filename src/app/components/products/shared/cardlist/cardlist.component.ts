@@ -8,7 +8,7 @@ import { Card } from '../../models/card.interface';
   styleUrls: ['./cardlist.component.scss'],
 })
 export class CardlistComponent implements OnInit, OnDestroy, DoCheck {
-  @Input() currentPageProducts: any = [];
+  @Input() currentPageProducts: Card[] = [];
   @Input() numberOfPages = 1;
   wishlist: Card[] = [];
 
@@ -23,8 +23,8 @@ export class CardlistComponent implements OnInit, OnDestroy, DoCheck {
   ngOnDestroy(): void {}
   setWishProducts() {
     this.wishlist = this.wishlistService.getWishlist();
-    this.currentPageProducts = this.currentPageProducts.map((product: any) =>
-      this.wishlist.some((wishProduct: any) => wishProduct.id === product.id)
+    this.currentPageProducts = this.currentPageProducts.map((product: Card) =>
+      this.wishlist.some((wishProduct: Card) => wishProduct.id === product.id)
         ? { ...product, isWished: true }
         : { ...product, isWished: false }
     );

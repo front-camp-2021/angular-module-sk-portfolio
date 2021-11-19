@@ -1,38 +1,37 @@
 .products-list {
-    // .products-list__bread-cramps
-    &__bread-cramps {
-      margin-bottom: 4.4rem;
+  // .products-list__bread-cramps
+  &__bread-cramps {
+    margin-bottom: 4.4rem;
+  }
+  // .products-list__pagination
+  &__pagination {
+    margin: 4rem auto 0 auto;
+  }
+  // .products-list__inner
+  &__inner {
+    display: grid;
+    grid-template-columns: 29% 69%;
+    gap: 2.5rem;
+
+    @media screen and (max-width: 1200px) {
+      gap: 1.6rem;
     }
-    // .products-list__pagination
-    &__pagination {
-      margin: 4rem auto 0 auto;
-    }
-    // .products-list__inner
-    &__inner {
-      display: grid;
-      grid-template-columns: 29% 69%;
-      gap: 2.5rem;
-  
-      @media screen and (max-width: 1200px) {
-        gap: 1.6rem;
-      }
-      @media screen and (max-width: 720px) {
-        grid-template-columns: 100%;
-      }
+    @media screen and (max-width: 720px) {
+      grid-template-columns: 100%;
     }
   }
-  .products__search-res {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 2.8rem;
-    p {
-      font-size: 1.8rem;
-      line-height: 2.1rem;
-      color: #2c2c2c;
-    }
+}
+.products__search-res {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.8rem;
+  p {
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    color: #2c2c2c;
   }
-  .products__btns{
-    display: flex;
-  }
-  
+}
+.products__btns {
+  display: flex;
+}

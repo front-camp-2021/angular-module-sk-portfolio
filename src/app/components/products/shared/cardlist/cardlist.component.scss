@@ -1,6 +1,5 @@
-:host{
-
-.products{
+:host {
+  .products {
     // .products__inner
     &__inner {
       display: grid;
@@ -10,16 +9,13 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 1.6rem;
       }
-  
+
       @media screen and (max-width: 720px) {
         grid-template-columns: 100%;
       }
-  
     }
-
   }
-  .products-list{
- 
+  .products-list {
     // .products-list__bread-cramps
     &__bread-cramps {
       margin-bottom: 4.4rem;
@@ -33,7 +29,7 @@
       display: grid;
       grid-template-columns: 29% 69%;
       gap: 2.5rem;
-  
+
       @media screen and (max-width: 1200px) {
         gap: 1.6rem;
       }
@@ -43,5 +39,3 @@
     }
   }
 }
-  
-  

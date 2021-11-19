@@ -1,12 +1,22 @@
 <nav class="products-list__pagination pagination">
-    <button class="pagination__btn pagination__btn--left" (click)="goToPrevPage()">
-        <img src="../../../assets/img/icons/arrow-left.svg" alt="prev">
-    </button>
+  <button
+    class="pagination__btn pagination__btn--left"
+    (click)="goToPrevPage()"
+  >
+    <img src="../../../assets/img/icons/arrow-left.svg" alt="prev" />
+  </button>
 
-    <ul class="pagination__list">
-        <app-pagination-link *ngFor="let linkNumber of pagesArr" [currentPage]="currentPage" [linkNumber]="linkNumber" ></app-pagination-link>
-    </ul>
-    <button class="pagination__btn pagination__btn--right" (click)="goToNextPage()">
-        <img src="../../../assets/img/icons/arrow-left.svg" alt="prev">
-    </button>
+  <ul class="pagination__list">
+    <app-pagination-link
+      *ngFor="let linkNumber of pagesArr"
+      [currentPage]="currentPage"
+      [linkNumber]="linkNumber"
+    ></app-pagination-link>
+  </ul>
+  <button
+    class="pagination__btn pagination__btn--right"
+    (click)="goToNextPage()"
+  >
+    <img src="../../../assets/img/icons/arrow-left.svg" alt="prev" />
+  </button>
 </nav>

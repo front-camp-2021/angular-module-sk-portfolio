@@ -1,42 +1,57 @@
 <article class="products__item product-card product-card--with-rating">
-    <div class="product-card__main">
-      <div class="product-card__img">
-        <img [src]="card.images[0]" alt="product">
-      </div>
-      <div class="product-card__info">
-        <div class="product-card__wr">
-          <div class="product-card__rating">
-                    <span >
-                      {{card.rating}}
-                    </span>
-            <img src="../../../assets/img/icons/star.svg" alt="rating-star">
-          </div>
-          <div class="product-card__price">
-            ${{card.price }}
-          </div>
+  <div class="product-card__main">
+    <div class="product-card__img">
+      <img [src]="card.images[0]" alt="product" />
+    </div>
+    <div class="product-card__info">
+      <div class="product-card__wr">
+        <div class="product-card__rating">
+          <span>
+            {{ card.rating }}
+          </span>
+          <img src="../../../assets/img/icons/star.svg" alt="rating-star" />
         </div>
-        
-        <a [routerLink]="['/products/', card.id]"  class="product-card__description">
-          <h3>
-            {{card.title}}
-          </h3>
-          <p>
-        
-          </p>
-        </a>
+        <div class="product-card__price">${{ card.price }}</div>
       </div>
+
+      <a
+        [routerLink]="['/products/', card.id]"
+        class="product-card__description"
+      >
+        <h3>
+          {{ card.title }}
+        </h3>
+        <p></p>
+      </a>
     </div>
-    <div class="product-card__btns">
-      <button class="product-card__btn btn" (click)="toggleToWishlist(card)">
-        <img [src]="card.isWished ? '../../../assets/img/icons/heart-painted.svg' : '../../../assets/img/icons/heart.svg' " alt="heart">
-        <span>WISHLIST</span>
-      </button>
-      <button class="product-card__btn btn btn--violet" (click)="toggleCart(card)">
-        <img [src]="card.isCart ? '../../../assets/img/icons/delete-from-cart.svg' : '../../../assets/img/icons/bag.svg'" alt="bag">
-        <span>
-          {{ card.isCart ? "REMOVE FROM CART" : "ADD TO CART" }}
-         
-        </span>
-      </button>
-    </div>
-  </article>
+  </div>
+  <div class="product-card__btns">
+    <button class="product-card__btn btn" (click)="toggleToWishlist(card)">
+      <img
+        [src]="
+          card.isWished
+            ? '../../../assets/img/icons/heart-painted.svg'
+            : '../../../assets/img/icons/heart.svg'
+        "
+        alt="heart"
+      />
+      <span>WISHLIST</span>
+    </button>
+    <button
+      class="product-card__btn btn btn--violet"
+      (click)="toggleCart(card)"
+    >
+      <img
+        [src]="
+          card.isCart
+            ? '../../../assets/img/icons/delete-from-cart.svg'
+            : '../../../assets/img/icons/bag.svg'
+        "
+        alt="bag"
+      />
+      <span>
+        {{ card.isCart ? "REMOVE FROM CART" : "ADD TO CART" }}
+      </span>
+    </button>
+  </div>
+</article>

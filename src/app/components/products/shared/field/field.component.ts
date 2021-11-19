@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FiltersService } from '../../core/filters/filters.service';
 import { ProductStorageService } from '../../core/product/product-storage.service';
 import { Subject } from 'rxjs';
@@ -10,7 +10,7 @@ import { Field } from '../../models/field.interface';
   templateUrl: './field.component.html',
   styleUrls: ['./field.component.scss'],
 })
-export class FieldComponent implements OnInit {
+export class FieldComponent {
   @Input() field: Field = {
     value: '',
     checked: false,
@@ -26,8 +26,6 @@ export class FieldComponent implements OnInit {
     private ProductStorageService: ProductStorageService
   ) {}
   private destroy$ = new Subject<void>();
-  ngOnInit(): void {}
-  ngDoCheck(): void {}
   toggleActiveField() {
     if (this.type === 'category') {
       this.toggleActiveCategoryField(this.field.value);

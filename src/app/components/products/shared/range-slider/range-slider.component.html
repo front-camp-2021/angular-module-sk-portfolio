@@ -1,6 +1,11 @@
 <div class="slider-range">
-    <span class="slider-range__title">
-        {{title}}
-    </span>
-    <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options" (userChangeEnd)="setSliderValues($event, title)"></ngx-slider>
+  <span class="slider-range__title">
+    {{ title }}
+  </span>
+  <ngx-slider
+    [(value)]="value"
+    [(highValue)]="highValue"
+    [options]="options"
+    (userChangeEnd)="setSliderValues($event, title)"
+  ></ngx-slider>
 </div>
